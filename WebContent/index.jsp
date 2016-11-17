@@ -15,8 +15,12 @@
 </head>
 <body>
 <H1>Welcome to Fonix Users</H1>
-<BUTTON>Sign Up</BUTTON>
-<BUTTON>Sign In</BUTTON>
+<form action="/fonix_tt/signIn.jsp">
+    <input type="submit" value="Sign In" />
+</form>
+<form action="/fonix_tt/signUp.jsp">
+    <input type="submit" value="Sign Up" />
+</form>
 
 </body>
 </html>

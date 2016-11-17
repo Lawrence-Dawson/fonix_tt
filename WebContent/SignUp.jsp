@@ -11,7 +11,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>SignUp</title>
+<title>Insert title here</title>
 </head>
 <body>
 <H1>Fill in the details below to Sign Up</H1>

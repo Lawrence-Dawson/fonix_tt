@@ -11,10 +11,10 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>SignIn</title>
+<title>Insert title here</title>
 </head>
 <body>
-	<form action="signIn" method="post">
+<form action="signIn" method="post">
 			<TABLE border="0">
 			<tr>
 				<td>Email Address: </td> <td><input type="text" name="email" /></td>
