@@ -19,4 +19,24 @@
     <servlet-name>servlet</servlet-name>
     <url-pattern>/servlet</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>signIn</display-name>
+    <servlet-name>signIn</servlet-name>
+    <servlet-class>com.lawrence.techtest.signIn</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>signIn</servlet-name>
+    <url-pattern>/signIn</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>signUp</display-name>
+    <servlet-name>signUp</servlet-name>
+    <servlet-class>com.lawrence.techtest.signUp</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>signUp</servlet-name>
+    <url-pattern>/signUp</url-pattern>
+  </servlet-mapping>
 </web-app>
