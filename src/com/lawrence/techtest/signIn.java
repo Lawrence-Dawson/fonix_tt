@@ -9,15 +9,15 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class signUp
+ * Servlet implementation class signIn
  */
-public class signUp extends HttpServlet {
+public class signIn extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public signUp() {
+    public signIn() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -35,13 +35,8 @@ public class signUp extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		PrintWriter out = response.getWriter();
-		
-		String forename = request.getParameter("forename");
-	    String surname = request.getParameter("surname");
-	    String email = request.getParameter("email");
+		String email = request.getParameter("email");
 	    String password = request.getParameter("password");
-	    out.println(forename);
-	    out.println(surname);
 	    out.println(email);
 	    out.println(password);
 	}
