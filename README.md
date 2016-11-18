@@ -41,6 +41,7 @@
 - Clone this repository into that new repository
 - Open the repository with your favourite Java IDE
 - Run the application by clicking on the 'Run' button (You may need to add a server to do this)
+- Visit "http://localhost:8080/fonix_tt/"
 
 **Not Achieved:**
 
