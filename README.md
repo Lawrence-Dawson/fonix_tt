@@ -56,3 +56,4 @@ I found this project difficult to achieve for a number of reasons.
 - There are hundreds of frameworks and approaches that can be used to create this application
 - I spent a long time researching different approaches, often trying small 'hello world' like apps using different resources and frameworks such as Spring
 - I eventually settled on a basic and 'old school' approach, using servlets instead of a Spring framework and controller. This was because I found Spring quite advanced, and the documentation difficult to follow
+- Progress was slow, I spent around one day in total on this test
