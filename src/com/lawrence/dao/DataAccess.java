@@ -1,22 +1,24 @@
 package com.lawrence.dao;
 
 import java.sql.PreparedStatement;
-
+import java.sql.SQLException;
 import com.lawrence.dbConnection.DbConnection;
 import com.lawrence.model.User;
 
+
 public class DataAccess {
-	public void addNew(User n) {
+	public void addNew(User n) throws SQLException {
 		try {
-			PreparedStatement ps = DbConnection.getPreparedStatement("insert into user values(?,?,?,?)");
+			System.out.println("Added record");
+			PreparedStatement ps = DbConnection.getPreparedStatement("insert (?,?,?,?)");
 			ps.setString(1, n.getForename());
-			ps.setString(1, n.getSurname();
-			ps.setString(1, n.getEmail();
-			ps.setString(1, n.getPassword();
+			ps.setString(2, n.getSurname());
+			ps.setString(3, n.getEmail());
+			ps.setString(4, n.getPassword());
+			ps.executeUpdate();
 
 		} catch (ClassNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			System.out.println("Error adding record");
 		}
 		
 	}

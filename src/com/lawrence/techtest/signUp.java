@@ -2,11 +2,15 @@ package com.lawrence.techtest;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.SQLException;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import com.lawrence.dao.DataAccess;
+import com.lawrence.model.User;
 
 /**
  * Servlet implementation class signUp
@@ -40,6 +44,16 @@ public class signUp extends HttpServlet {
 	    String surname = request.getParameter("surname");
 	    String email = request.getParameter("email");
 	    String password = request.getParameter("password");
+	    
+	    User n = new User(0, forename, surname, email, password);
+	    DataAccess da = new DataAccess();
+	    try {
+			da.addNew(n);
+		} catch (SQLException e) {
+			System.out.println("error adding user at servlet level");
+			e.printStackTrace();
+		}
+	    
 	    out.println(forename);
 	    out.println(surname);
 	    out.println(email);
