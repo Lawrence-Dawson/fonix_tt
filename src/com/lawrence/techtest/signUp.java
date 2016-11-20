@@ -45,10 +45,12 @@ public class signUp extends HttpServlet {
 	    String email = request.getParameter("email");
 	    String password = request.getParameter("password");
 	    
-	    User n = new User(0, forename, surname, email, password);
-	    DataAccess da = new DataAccess();
+	    User newUser = new User(0, forename, surname, email, password);
+	    DataAccess database = new DataAccess();
+	    System.out.println("database = " + database);
 	    try {
-			da.addNew(n);
+	    	System.out.println("add new called in servlet");
+			database.addNew(newUser);
 		} catch (SQLException e) {
 			System.out.println("error adding user at servlet level");
 			e.printStackTrace();
