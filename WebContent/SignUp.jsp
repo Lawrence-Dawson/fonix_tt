@@ -33,7 +33,7 @@
 			<td>Password: </td> <td><input type="text" name="password" /></td>
 		</tr>
 		<tr>
-			<td>Password Confirmation: </td> <td><input type="text" name="Password Confirmation" /></td>
+			<td>Password Confirmation: </td> <td><input type="text" name="password confirmation" /></td>
 		</tr>
 		<tr>
 			<td colspan="2"><input type="submit" value="Submit" /></td>

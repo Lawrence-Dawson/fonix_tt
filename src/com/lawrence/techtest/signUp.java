@@ -44,7 +44,9 @@ public class signUp extends HttpServlet {
 	    String surname = request.getParameter("surname");
 	    String email = request.getParameter("email");
 	    String password = request.getParameter("password");
+	    String passwordConfirmation = request.getParameter("password confirmation");
 	    
+	    if (password.equals(passwordConfirmation)) {
 	    User newUser = new User(0, forename, surname, email, password);
 	    DataAccess database = new DataAccess();
 	    System.out.println("database = " + database);
@@ -60,6 +62,11 @@ public class signUp extends HttpServlet {
 	    out.println(surname);
 	    out.println(email);
 	    out.println(password);
+	    } else {
+			System.out.println(password + " isn't the same as " + passwordConfirmation);
+
+			System.out.println("error passwords don't match");
+	    }
 	}
 
 }

@@ -5,6 +5,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import com.lawrence.dbConnection.DbConnection;
 import com.lawrence.model.User;
+import com.lawrence.security.Password;
 
 
 public class DataAccess {
@@ -15,11 +16,14 @@ public class DataAccess {
 				return;
 			} else {
 			System.out.println("Adding record");
+			
 			PreparedStatement ps = DbConnection.getPreparedStatement("INSERT INTO USERS (Forename, Surname, Email, Password)" + "VALUES(?,?,?,?)");
+			String password = newUser.getPassword();
+			
 			ps.setString(1, newUser.getForename());
 			ps.setString(2, newUser.getSurname());
 			ps.setString(3, newUser.getEmail());
-			ps.setString(4, newUser.getPassword());
+			ps.setString(4, Password.hashPassword(password));
 			ps.executeUpdate();
 			}
 		} catch (ClassNotFoundException e) {
