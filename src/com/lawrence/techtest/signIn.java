@@ -40,12 +40,10 @@ public class signIn extends HttpServlet {
 		String email = request.getParameter("email");
 	    String password = request.getParameter("password");
 	    DataAccess database = new DataAccess();
+	
 	    try {
-			database.checkUnique(email);
-		} catch (ClassNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (SQLException e) {
+			database.retrieveUser(email);
+		} catch (ClassNotFoundException | SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}

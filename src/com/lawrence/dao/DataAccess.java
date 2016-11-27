@@ -47,4 +47,21 @@ public class DataAccess {
 		}
 		return false;
 	}
+	
+	public void retrieveUser(String email) throws SQLException, ClassNotFoundException {
+		System.out.println("retrieve in process");
+		final String queryCheck = "SELECT User_id, Forename, Email, Password " +
+             "FROM users WHERE email = ?";
+		final PreparedStatement ps = DbConnection.getPreparedStatement(queryCheck);
+		ps.setString(1, email);
+		 ResultSet resultSet = ps.executeQuery();
+		 System.out.println("results set = " + resultSet);
+		 while (resultSet.next()) {
+			 String forename = resultSet.getString("Forename");
+			 String password = resultSet.getString("Password");
+			 System.out.println("forename = " + forename);
+			 System.out.println(password);
+		 }
+	}
+	
 }
