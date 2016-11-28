@@ -13,6 +13,7 @@ public class DataAccess {
 		System.out.println("add new user function called");
 		try {
 			if (checkUnique(newUser.getEmail())) {
+				System.out.println("User not unique");
 				return;
 			} else {
 			System.out.println("Adding record");
@@ -33,6 +34,7 @@ public class DataAccess {
 	}
 
 	public boolean checkUnique(String email) throws ClassNotFoundException, SQLException {
+		System.out.println("Checking if user is unique");
 		final String queryCheck = "SELECT count(*) from USERS WHERE Email = ?";
 		final PreparedStatement ps = DbConnection.getPreparedStatement(queryCheck);
 		ps.setString(1, email);
@@ -48,20 +50,30 @@ public class DataAccess {
 		return false;
 	}
 	
-	public void retrieveUser(String email) throws SQLException, ClassNotFoundException {
+	public User retrieveUser(String email,String password) throws SQLException, ClassNotFoundException {
 		System.out.println("retrieve in process");
-		final String queryCheck = "SELECT User_id, Forename, Email, Password " +
+		final String queryCheck = "SELECT User_id, Forename, Surname, Email, Password " +
              "FROM users WHERE email = ?";
 		final PreparedStatement ps = DbConnection.getPreparedStatement(queryCheck);
 		ps.setString(1, email);
 		 ResultSet resultSet = ps.executeQuery();
 		 System.out.println("results set = " + resultSet);
 		 while (resultSet.next()) {
+			  int id = resultSet.getInt("User_id");
 			 String forename = resultSet.getString("Forename");
-			 String password = resultSet.getString("Password");
-			 System.out.println("forename = " + forename);
-			 System.out.println(password);
+			 String surname = resultSet.getString("Surname");
+			 String hashedPassword = resultSet.getString("Password");
+			 if (Password.checkPassword(password, hashedPassword)){
+				 User retrievedUser = new User(id, forename, surname, email, password);
+				 System.out.println("found user");
+				 return retrievedUser;
+			 	} else {
+			 	System.out.println("passwords don't match");
+			 	 return null;
+			}
 		 }
+		System.out.println("user not found");
+		return null;
 	}
 	
 }

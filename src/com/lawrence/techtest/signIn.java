@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.lawrence.dao.DataAccess;
+import com.lawrence.model.User;
 
 /**
  * Servlet implementation class signIn
@@ -37,12 +38,17 @@ public class signIn extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		PrintWriter out = response.getWriter();
 		String email = request.getParameter("email");
 	    String password = request.getParameter("password");
 	    DataAccess database = new DataAccess();
 	
 	    try {
-			database.retrieveUser(email);
+			User retrievedUser = database.retrieveUser(email, password);
+			String forename = retrievedUser.getForename();
+			String surname = retrievedUser.getSurname();
+			String dbPassword = retrievedUser.getPassword();
+			out.println("Logged in as " + forename +" " + surname);
 		} catch (ClassNotFoundException | SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

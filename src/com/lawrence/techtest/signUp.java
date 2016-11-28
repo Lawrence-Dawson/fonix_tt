@@ -47,23 +47,18 @@ public class signUp extends HttpServlet {
 	    String passwordConfirmation = request.getParameter("password confirmation");
 	    
 	    if (password.equals(passwordConfirmation)) {
+	    	System.out.println("Passwords match");
 	    User newUser = new User(0, forename, surname, email, password);
 	    DataAccess database = new DataAccess();
-		
-		
 		try {
-			if(database.checkUnique(email)){
-				   try {
-						database.addNew(newUser);
-						  out.println(forename + " added successfully");
-					} catch (SQLException e) {
-						e.printStackTrace();
-					}
-			}
-		} catch (ClassNotFoundException | SQLException e) {
+			System.out.println("Add user called in servlet");
+			database.addNew(newUser);
+		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		out.println(forename + " added successfully");
+					
 	    } else {
 	    	out.println("passwords don't match");
 			System.out.println("error passwords don't match");
