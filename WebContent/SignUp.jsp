@@ -27,7 +27,7 @@
 			<td>Email Address: </td> <td><input type="text" name="email" /></td>
 		</tr>
 		<tr>
-			<td>Email Address Confirmation: </td> <td><input type="text" name="email" /></td>
+			<td>Email Address Confirmation: </td> <td><input type="text" name="confirmation email" /></td>
 		</tr>
 		<tr>
 			<td>Password: </td> <td><input type="text" name="password" /></td>

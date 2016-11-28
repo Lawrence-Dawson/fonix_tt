@@ -43,10 +43,11 @@ public class signUp extends HttpServlet {
 		String forename = request.getParameter("forename");
 	    String surname = request.getParameter("surname");
 	    String email = request.getParameter("email");
+	    String confirmationEmail = request.getParameter("confirmtion email");
 	    String password = request.getParameter("password");
 	    String passwordConfirmation = request.getParameter("password confirmation");
 	    
-	    if (password.equals(passwordConfirmation)) {
+	    if (password.equals(passwordConfirmation) && email.equals(confirmationEmail)) {
 	    	System.out.println("Passwords match");
 	    User newUser = new User(0, forename, surname, email, password);
 	    DataAccess database = new DataAccess();
@@ -57,11 +58,9 @@ public class signUp extends HttpServlet {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		out.println(forename + " added successfully");
-					
+		out.println(forename + " added successfully");					
 	    } else {
-	    	out.println("passwords don't match");
-			System.out.println("error passwords don't match");
+	    	out.println("passwords or email addresses don't match");
 	    }
 	}
 

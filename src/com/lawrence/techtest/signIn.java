@@ -47,7 +47,6 @@ public class signIn extends HttpServlet {
 			User retrievedUser = database.retrieveUser(email, password);
 			String forename = retrievedUser.getForename();
 			String surname = retrievedUser.getSurname();
-			String dbPassword = retrievedUser.getPassword();
 			out.println("Logged in as " + forename +" " + surname);
 		} catch (ClassNotFoundException | SQLException e) {
 			// TODO Auto-generated catch block
