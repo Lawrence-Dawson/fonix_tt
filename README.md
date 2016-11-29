@@ -14,7 +14,7 @@
 
 **With more time I would continue with the following approach:**
 
-- Get enable records to be added and retrieved from the database
+- Enable records to be retrieved from the database
 - Add basic form submission validation, checking that password and confirmation password match
 - Enable hashing of passwords
 - Add mobile number field to the sign up form
